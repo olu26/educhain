@@ -1,0 +1,12 @@
+type User = record {
+  id: text;
+  email: text;
+  role: text;
+  name: text;
+};
+
+service : {
+  registerUser: (text, text, text, text) -> (bool) query;
+  getUserById: (text) -> (opt User) query;
+  getAllUsers: () -> (vec User) query;
+};

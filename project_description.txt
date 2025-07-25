@@ -1,0 +1,5 @@
+System Prompt:
+[No explicit system prompt found in the project]
+
+Project Description:
+Educhain is an education management platform designed to serve multiple user roles including administrators, schools, parents, and students. The platform provides role-based dashboards and features to manage academic performance, attendance, communication, enrollment, and other school-related activities. It aims to streamline educational administration and enhance communication among stakeholders in the education ecosystem.

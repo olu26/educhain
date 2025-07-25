@@ -1,0 +1,5 @@
+// Version: 1.0.0
+type User__524405912 = {email : Text; id : Text; name : Text; role : Text};
+actor {
+  stable var users : [User__524405912]
+};

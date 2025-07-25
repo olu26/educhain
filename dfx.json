@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "user_management": {
+      "type": "motoko",
+      "main": "src/ic/user_management/main.mo",
+      "candid": "src/ic/user_management/user_management.did"
+    },
+    "internet_identity": {
+      "type": "custom",
+      "wasm": "/home/olu/Desktop/internet-identity/src/internet_identity/internet_identity.wasm",
+      "candid": "/home/olu/Desktop/internet-identity/src/internet_identity/internet_identity.did"
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": [
+        "https://ic0.app"
+      ]
+    }
+  },
+  "version": 1
+}
