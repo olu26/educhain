@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
-  Shield, 
+  Shield,
+ 
   ArrowRightLeft, 
   ShieldCheck, 
   Activity, 
@@ -210,7 +211,7 @@ const LandingPage = () => {
     return (
       <div className="fixed inset-0 bg-gradient-to-br from-green-600 to-green-800 flex flex-col items-center justify-center z-50">
         <div className="w-24 h-24 mb-8">
-          <Shield className="w-full h-full text-white animate-pulse" />
+          <GraduationCap className="w-full h-full text-white animate-pulse" />
         </div>
         <h1 className="text-3xl font-bold text-white mb-8">EduChain Nigeria</h1>
         <div className="w-64 h-2 bg-green-900/30 rounded-full overflow-hidden">
@@ -241,7 +242,7 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <Shield className="w-8 h-8 text-green-600" />
+              <GraduationCap className="w-8 h-8 text-green-600" />
               <span className="text-xl font-bold text-gray-900">EduChain Nigeria</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -935,7 +936,7 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <Shield className="w-8 h-8 text-green-600" />
+                <GraduationCap className="w-8 h-8 text-green-600" />
                 <span className="text-xl font-bold">EduChain Nigeria</span>
               </div>
               <p className="text-gray-400 mb-6 max-w-md">

@@ -1,7 +1,8 @@
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { 
-  Shield, 
+  Shield,
+  GraduationCap, 
   Bell, 
   Settings, 
   LogOut, 
@@ -47,7 +48,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <Shield className="w-8 h-8 text-green-600" />
+              <GraduationCap className="w-8 h-8 text-green-600" />
               <span className="ml-2 text-xl font-bold text-gray-900">EduChain</span>
             </div>
           </div>
