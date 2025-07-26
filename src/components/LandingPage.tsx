@@ -46,7 +46,7 @@ const LandingPage = () => {
   const [solutionRef, solutionInView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [featuresRef, featuresInView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [benefitsRef, benefitsInView] = useInView({ threshold: 0.2, triggerOnce: true });
-  const [testimonialsRef, testimonialsInView] = useInView({ threshold: 0.2, triggerOnce: true });
+  // const [testimonialsRef, testimonialsInView] = useInView({ threshold: 0.2, triggerOnce: true });
   const [statsRef, statsInView] = useInView({ threshold: 0.2, triggerOnce: true });
 
   useEffect(() => {
