@@ -8,13 +8,14 @@ Educhain addresses key challenges faced by current education management systems 
 Leveraging the Internet Computer Protocol (ICP), Educhain offers decentralized data storage, enhanced security through blockchain immutability, trustless verification of academic credentials, smart contract automation for administrative workflows, and interoperability with other decentralized applications.
 
 ## Features
-- Role-based dashboards tailored for administrators, schools, parents, and students
-- Real-time academic performance tracking and analytics
-- Attendance management and automated workflows
-- Secure communication channels between stakeholders
-- Immutable academic records stored on the blockchain
-- Enrollment verification and smart contract automation
-- Seamless interoperability with decentralized applications
+- Unique Digital Student ID secured by blockchain
+- Instant Record Transfer between Nigerian schools
+- Tamper-Proof Verification of WAEC and NECO records
+- Real-Time Performance Tracking with analytics for Nigerian curriculum
+- Cross-State Compatibility across all Nigerian states and FCT
+- Visual Progress Dashboard with culturally relevant metrics
+- NFT Certificate Minting for academic credentials on blockchain
+- Comprehensive Student Dashboard with academic management, performance analytics, attendance, timetable, transfers, assignments, grading, notifications, and support
 
 ## Technologies Used
 - **Frontend:** React 18 with TypeScript
