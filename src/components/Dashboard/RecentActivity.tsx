@@ -147,7 +147,7 @@ const RecentActivity = () => {
   const activities = getActivitiesForRole();
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
       <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h3>
       <div className="space-y-4">
         {activities.map((activity) => {
@@ -155,11 +155,11 @@ const RecentActivity = () => {
           return (
             <div key={activity.id} className="flex items-start space-x-3">
               <div className={`${activity.bg} p-2 rounded-lg`}>
-                <Icon className={`w-4 h-4 ${activity.color}`} />
+                <Icon className={`w-3 h-3 sm:w-4 sm:h-4 ${activity.color}`} />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900">{activity.action}</p>
-                <p className="text-sm text-gray-500">{activity.description}</p>
+                <p className="text-xs sm:text-sm font-medium text-gray-900">{activity.action}</p>
+                <p className="text-xs sm:text-sm text-gray-500 truncate">{activity.description}</p>
                 <p className="text-xs text-gray-400 mt-1">{activity.timestamp}</p>
               </div>
             </div>

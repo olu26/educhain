@@ -5,6 +5,11 @@
       "main": "src/ic/user_management/main.mo",
       "candid": "src/ic/user_management/user_management.did"
     },
+    "nft_certificates": {
+      "type": "motoko",
+      "main": "src/ic/nft_certificates/main.mo",
+      "candid": "src/ic/nft_certificates/nft_certificates.did"
+    },
     "internet_identity": {
       "type": "custom",
       "wasm": "/home/olu/Desktop/internet-identity/src/internet_identity/internet_identity.wasm",
