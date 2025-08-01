@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider, useAuth } from './hooks/useAuth';
+import { NFTProvider } from './hooks/useNFT';
 import LoginForm from './components/Auth/LoginForm';
 import LandingPage from './components/LandingPage';
 import Navbar from './components/Layout/Navbar';
@@ -42,9 +43,14 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <div className="flex">
-        <Sidebar currentPage={currentPage} onPageChange={setCurrentPage} />
-        <main className="flex-1 p-8">
+      <div className="flex flex-col lg:flex-row">
+        <div className="lg:hidden">
+          <Sidebar currentPage={currentPage} onPageChange={setCurrentPage} />
+        </div>
+        <div className="hidden lg:block">
+          <Sidebar currentPage={currentPage} onPageChange={setCurrentPage} />
+        </div>
+        <main className="flex-1 p-4 sm:p-6 lg:p-8">
           {renderContent()}
         </main>
       </div>
@@ -80,7 +86,9 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <AppContent />
+        <NFTProvider>
+          <AppContent />
+        </NFTProvider>
       </AuthProvider>
     </Router>
   );

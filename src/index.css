@@ -15,7 +15,16 @@
 /* Ensure proper touch targets on mobile */
 @media (max-width: 640px) {
   button, a, input, select, textarea {
-    min-height: 44px;
+    min-height: 40px;
+  }
+  
+  /* Improve button spacing on mobile */
+  .space-x-2 > * + * {
+    margin-left: 0.25rem;
+  }
+  
+  .space-x-3 > * + * {
+    margin-left: 0.5rem;
   }
 }
 
@@ -30,6 +39,41 @@
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+  
+  /* Better spacing for mobile cards */
+  .space-y-4 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
+}
+
+/* Responsive grid improvements */
+@media (max-width: 768px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* Text truncation utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Animation Keyframes */

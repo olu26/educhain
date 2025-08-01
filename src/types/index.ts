@@ -137,3 +137,32 @@ export interface AnalyticsData {
   securityIncidents: number;
   userSatisfactionScore: number;
 }
+
+export interface NFTCertificate {
+  id: string;
+  studentId: string;
+  certificateType: 'academic' | 'completion' | 'achievement' | 'graduation';
+  title: string;
+  description: string;
+  issuer: string;
+  issueDate: string;
+  metadata: {
+    gpa?: number;
+    grade?: string;
+    subject?: string;
+    achievement?: string;
+    skills?: string[];
+  };
+  tokenId?: string;
+  mintedAt?: string;
+  mintedBy?: string;
+  isMinted: boolean;
+  ipfsHash?: string;
+  blockchainTxHash?: string;
+}
+
+export interface MintingRequest {
+  certificateId: string;
+  recipientAddress: string;
+  metadata: Record<string, any>;
+}

@@ -44,6 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onPageChange }) => {
           { id: 'transfer-request', icon: School, label: 'Request Transfer' },
           { id: 'assignments', icon: FileText, label: 'Assignments' },
           { id: 'grading', icon: Award, label: 'Grading System' },
+          { id: 'nft-certificates', icon: Award, label: 'NFT Certificates' },
           { id: 'notifications', icon: Bell, label: 'Notifications' },
           { id: 'help', icon: HelpCircle, label: 'Help & Support' },
         ];
@@ -91,8 +92,8 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onPageChange }) => {
   const menuItems = getMenuItems();
 
   return (
-    <div className="bg-white w-64 min-h-screen border-r border-gray-200">
-      <div className="p-6">
+    <div className="bg-white w-full lg:w-64 min-h-screen border-r border-gray-200 lg:min-h-screen">
+      <div className="p-4 sm:p-6">
         <nav className="space-y-2">
           {menuItems.map((item) => {
             const Icon = item.icon;
@@ -108,8 +109,8 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onPageChange }) => {
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                 }`}
               >
-                <Icon className={`w-5 h-5 mr-3 ${isActive ? 'text-green-600' : 'text-gray-400'}`} />
-                {item.label}
+                <Icon className={`w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 ${isActive ? 'text-green-600' : 'text-gray-400'}`} />
+                <span className="text-xs sm:text-sm">{item.label}</span>
               </button>
             );
           })}

@@ -64,9 +64,9 @@ const AnalyticsChart = () => {
   const chartConfig = getChartData();
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
       <h3 className="text-lg font-semibold text-gray-900 mb-4">{chartConfig.title}</h3>
-      <div className="h-64">
+      <div className="h-48 sm:h-64">
         <ResponsiveContainer width="100%" height="100%">
           {chartConfig.type === 'line' ? (
             <LineChart data={chartConfig.data}>

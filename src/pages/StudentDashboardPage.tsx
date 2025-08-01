@@ -14,6 +14,7 @@ import Assignments from '../components/Student/Assignments';
 import GradingSystemExplanation from '../components/Student/GradingSystemExplanation';
 import StudentNotifications from '../components/Student/StudentNotifications';
 import StudentHelpSupport from '../components/Student/StudentHelpSupport';
+import NFTCertificates from '../components/Student/NFTCertificates';
 
 interface StudentDashboardPageProps {
   activeTab: string;
@@ -34,6 +35,7 @@ const StudentDashboardPage: React.FC<StudentDashboardPageProps> = ({ activeTab, 
     { id: 'transfer-request', label: 'Request Transfer' },
     { id: 'assignments', label: 'Assignments' },
     { id: 'grading', label: 'Grading System' },
+    { id: 'nft-certificates', label: 'NFT Certificates' },
     { id: 'notifications', label: 'Notifications' },
     { id: 'help', label: 'Help & Support' },
   ];
@@ -68,6 +70,8 @@ const StudentDashboardPage: React.FC<StudentDashboardPageProps> = ({ activeTab, 
         return <Assignments />;
       case 'grading':
         return <GradingSystemExplanation />;
+      case 'nft-certificates':
+        return <NFTCertificates />;
       case 'notifications':
         return <StudentNotifications />;
       case 'help':
@@ -89,12 +93,12 @@ const StudentDashboardPage: React.FC<StudentDashboardPageProps> = ({ activeTab, 
       {/* Tab Navigation */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100">
         <div className="border-b border-gray-200">
-          <nav className="flex space-x-8 px-6 overflow-x-auto">
+          <nav className="flex space-x-2 sm:space-x-8 px-4 sm:px-6 overflow-x-auto scrollbar-hide">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`py-4 px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${
+                className={`py-4 px-2 sm:px-1 border-b-2 font-medium text-sm whitespace-nowrap transition-colors ${
                   activeTab === tab.id
                     ? 'border-green-500 text-green-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -105,7 +109,7 @@ const StudentDashboardPage: React.FC<StudentDashboardPageProps> = ({ activeTab, 
             ))}
           </nav>
         </div>
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {renderTabContent()}
         </div>
       </div>

@@ -1,0 +1,30 @@
+type Certificate = record {
+  id: text;
+  studentId: text;
+  certificateType: text;
+  title: text;
+  description: text;
+  issuer: text;
+  issueDate: int;
+  metadata: text;
+  tokenId: opt text;
+  mintedAt: opt int;
+  mintedBy: opt text;
+  isMinted: bool;
+  ipfsHash: opt text;
+  blockchainTxHash: opt text;
+};
+
+type Result = variant {
+  ok: text;
+  err: text;
+};
+
+service : {
+  createCertificate: (text, text, text, text, text, text, text) -> (bool);
+  mintNFT: (text, text) -> (Result);
+  getCertificatesByStudent: (text) -> (vec Certificate) query;
+  getCertificateById: (text) -> (opt Certificate) query;
+  getAllCertificates: () -> (vec Certificate) query;
+  getMintedCertificates: () -> (vec Certificate) query;
+}
