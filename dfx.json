@@ -10,6 +10,11 @@
       "main": "src/ic/nft_certificates/main.mo",
       "candid": "src/ic/nft_certificates/nft_certificates.did"
     },
+    "student_records": {
+      "type": "motoko",
+      "main": "src/ic/student_records/main.mo",
+      "candid": "src/ic/student_records/student_records.did"
+    },
     "internet_identity": {
       "type": "custom",
       "wasm": "/home/olu/Desktop/internet-identity/src/internet_identity/internet_identity.wasm",

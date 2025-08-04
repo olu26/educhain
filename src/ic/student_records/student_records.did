@@ -1,0 +1,256 @@
+service : {
+  // Student management
+  createStudent: (record {
+    firstName: text;
+    lastName: text;
+    dateOfBirth: int;
+    gender: text;
+    email: text;
+    phone: text;
+    address: text;
+    currentGrade: text;
+    currentSchoolId: text;
+    parentIds: vec text;
+    emergencyContacts: vec record {
+      name: text;
+      relationship: text;
+      phone: text;
+      email: text;
+    };
+    medicalInfo: record {
+      bloodGroup: text;
+      allergies: vec text;
+      medications: vec text;
+      specialNeeds: text;
+    };
+  }) -> (variant { ok: text; err: text });
+  
+  updateStudent: (text, record {
+    firstName: opt text;
+    lastName: opt text;
+    email: opt text;
+    phone: opt text;
+    address: opt text;
+    currentGrade: opt text;
+    currentSchoolId: opt text;
+    status: opt text;
+  }) -> (variant { ok: bool; err: text });
+  
+  getStudentById: (text) -> (opt record {
+    id: text;
+    studentNumber: text;
+    firstName: text;
+    lastName: text;
+    dateOfBirth: int;
+    gender: text;
+    email: text;
+    phone: text;
+    address: text;
+    enrollmentDate: int;
+    currentGrade: text;
+    currentSchoolId: text;
+    parentIds: vec text;
+    emergencyContacts: vec record {
+      name: text;
+      relationship: text;
+      phone: text;
+      email: text;
+    };
+    medicalInfo: record {
+      bloodGroup: text;
+      allergies: vec text;
+      medications: vec text;
+      specialNeeds: text;
+    };
+    status: text;
+    createdAt: int;
+    updatedAt: int;
+  }) query;
+  
+  getStudentsBySchool: (text) -> (vec record {
+    id: text;
+    studentNumber: text;
+    firstName: text;
+    lastName: text;
+    currentGrade: text;
+    status: text;
+  }) query;
+  
+  getStudentsByParent: (text) -> (vec record {
+    id: text;
+    studentNumber: text;
+    firstName: text;
+    lastName: text;
+    currentGrade: text;
+    status: text;
+  }) query;
+  
+  // Academic records
+  createAcademicRecord: (record {
+    studentId: text;
+    schoolId: text;
+    academicYear: text;
+    gradeLevel: text;
+    subjects: vec record {
+      subjectId: text;
+      subjectName: text;
+      teacherId: text;
+      grade: text;
+      score: float;
+      credits: float;
+      semester: text;
+    };
+    overallGPA: float;
+    attendancePercentage: float;
+    conductGrade: text;
+    remarks: text;
+  }) -> (variant { ok: text; err: text });
+  
+  getAcademicRecordsByStudent: (text) -> (vec record {
+    id: text;
+    studentId: text;
+    schoolId: text;
+    academicYear: text;
+    gradeLevel: text;
+    subjects: vec record {
+      subjectId: text;
+      subjectName: text;
+      teacherId: text;
+      grade: text;
+      score: float;
+      credits: float;
+      semester: text;
+    };
+    overallGPA: float;
+    attendancePercentage: float;
+    conductGrade: text;
+    remarks: text;
+    createdAt: int;
+  }) query;
+  
+  // Attendance management
+  recordAttendance: (record {
+    studentId: text;
+    schoolId: text;
+    date: int;
+    status: text;
+    period: text;
+    notes: text;
+    recordedBy: text;
+  }) -> (variant { ok: text; err: text });
+  
+  getAttendanceByStudent: (text, int, int) -> (vec record {
+    id: text;
+    studentId: text;
+    schoolId: text;
+    date: int;
+    status: text;
+    period: text;
+    notes: text;
+    recordedBy: text;
+  }) query;
+  
+  getAttendanceSummary: (text, int, int) -> (record {
+    totalDays: nat;
+    presentDays: nat;
+    absentDays: nat;
+    lateDays: nat;
+    excusedDays: nat;
+    attendanceRate: float;
+  }) query;
+  
+  // Transfer requests
+  createTransferRequest: (record {
+    studentId: text;
+    fromSchoolId: text;
+    toSchoolId: text;
+    reason: text;
+    documents: vec text;
+    parentApproval: bool;
+  }) -> (variant { ok: text; err: text });
+  
+  updateTransferStatus: (text, text, text) -> (variant { ok: bool; err: text });
+  
+  getTransferRequestsByStudent: (text) -> (vec record {
+    id: text;
+    studentId: text;
+    fromSchoolId: text;
+    toSchoolId: text;
+    requestDate: int;
+    reason: text;
+    status: text;
+    documents: vec text;
+    parentApproval: bool;
+    schoolApproval: bool;
+    adminApproval: bool;
+    completedAt: opt int;
+    createdAt: int;
+  }) query;
+  
+  getTransferRequestsBySchool: (text) -> (vec record {
+    id: text;
+    studentId: text;
+    fromSchoolId: text;
+    toSchoolId: text;
+    requestDate: int;
+    reason: text;
+    status: text;
+    createdAt: int;
+  }) query;
+  
+  // School management
+  createSchool: (record {
+    name: text;
+    code: text;
+    address: text;
+    phone: text;
+    email: text;
+    principalName: text;
+    schoolType: text;
+    gradesOffered: vec text;
+    maxCapacity: nat;
+  }) -> (variant { ok: text; err: text });
+  
+  getSchoolById: (text) -> (opt record {
+    id: text;
+    name: text;
+    code: text;
+    address: text;
+    phone: text;
+    email: text;
+    principalName: text;
+    schoolType: text;
+    gradesOffered: vec text;
+    maxCapacity: nat;
+    currentEnrollment: nat;
+    isActive: bool;
+    createdAt: int;
+  }) query;
+  
+  getAllSchools: () -> (vec record {
+    id: text;
+    name: text;
+    code: text;
+    schoolType: text;
+    isActive: bool;
+  }) query;
+  
+  // Analytics and reporting
+  getSchoolAnalytics: (text) -> (record {
+    totalStudents: nat;
+    activeStudents: nat;
+    transferredStudents: nat;
+    graduatedStudents: nat;
+    averageGPA: float;
+    averageAttendance: float;
+  }) query;
+  
+  getStudentAnalytics: (text) -> (record {
+    currentGrade: text;
+    totalAcademicRecords: nat;
+    averageGPA: float;
+    totalAttendanceDays: nat;
+    attendanceRate: float;
+    transferRequests: nat;
+  }) query;
+}
